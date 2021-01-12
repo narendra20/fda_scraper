@@ -28,7 +28,7 @@ class QuotesSpider(scrapy.Spider):
                 job = yield Request('https://www.accessdata.fda.gov/cms_ia/'+projects, dont_filter=True)
                 if job.xpath('//*[@id="mp-pusher"]/div/div/div/div/div[3]/div/div[1]').get() != None:
                     import_alert = job.xpath('//*[@id="mp-pusher"]/div/div/div/div/div[3]/div/div[1]/text()').get()
-                    import_alert = import_alert.replace(' # ', '')
+                    # import_alert = import_alert.replace(' # ', '')
                 else:
                     import_alert = ""
                 if job.xpath('//*[@id="mp-pusher"]/div/div/div/div/div[3]/div/div[2]').get() != None:
